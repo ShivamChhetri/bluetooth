@@ -15,7 +15,7 @@
             console.log('Getting Bluetooth Device...');
             try{
                 let device= await navigator.bluetooth.requestDevice({
-                    acceptAllDevices : true,
+                    //acceptAllDevices : true,
                     filters: [{
                       services: ['battery_service']
                     }]
