@@ -7,13 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <button onclick="bluetooth()">click</button>
+    <button onclick="bluetooth()">click!</button>
     <h1 id="devices"></h1>
     <script>
         let devices= document.getElementById('devices');
-        async function bluetooth(){
+        function bluetooth(){
             console.log('Getting Bluetooth Device...');
-            try{
+            /*try{
                 let device= await navigator.bluetooth.requestDevice({
                     acceptAllDevices : true,
                     //filters: [{
@@ -25,17 +25,18 @@
                 devices.innerHTML=`name:${device.name}\n id:${device.id}\n connected:${device.gatt.connected}`;
             }catch(err){
                 console.log(err);
-            }
-            /*navigator.bluetooth.requestDevice(
+            }*/
+            navigator.bluetooth.requestDevice(
             {
                 acceptAllDevices : true
             })
             .then(device => {
                    device.gatt.connect();
-                   devices.innerHTML=`name:${device.name}\n id:${device.id}\n connected:${device.gatt.connected}`;
+                   devices.innerHTML=`name:${device.name}\n id:${device.id}\n connected:${device.gatt.connected}
+                                    \ndevice:${device}`;
             }).catch(error => {
                 console.log(error);
-            });*/
+            });
         }
     </script>
 </body>
