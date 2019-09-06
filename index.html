@@ -13,8 +13,12 @@
         let devices= document.getElementById('devices');
         async function bluetooth(){
             console.log('Getting Bluetooth Device...');
-            let device= await navigator.bluetooth.requestDevice();
-            console.log(device.name);
+            try{
+                let device= await navigator.bluetooth.requestDevice();
+                console.log(device.name);
+            }catch(err){
+                console.log(err);
+            }
             /*navigator.bluetooth.requestDevice(
             {
                 acceptAllDevices : true
