@@ -11,7 +11,7 @@ class GenericDevice {
         "acceptAllDevices ": true,
         // "optionalServices": ["device_information"]
       };
-      return navigator.bluetooth.requestDevice({"acceptAllDevices ": true})
+      return navigator.bluetooth.requestDevice({acceptAllDevices: true})
       .then(device => {
         this.device = device;
         this.device.addEventListener('gattserverdisconnected', this.onDisconnected);
