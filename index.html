@@ -11,21 +11,22 @@
     <h1 id="devices"></h1>
     <script>
         let devices= document.getElementById('devices');
-        function bluetooth(){
+        async function bluetooth(){
             console.log('Getting Bluetooth Device...');
-            /*try{
+            try{
                 let device= await navigator.bluetooth.requestDevice({
                     acceptAllDevices : true,
                     //filters: [{
                     //  services: ['battery_service']
                     //}]
                    });
+                await device.gatt.connect();
                 console.log(device.name);
                 devices.innerHTML=`name:${device.name}\n id:${device.id}\n connected:${device.gatt.connected}`;
             }catch(err){
                 console.log(err);
-            }*/
-            navigator.bluetooth.requestDevice(
+            }
+            /*navigator.bluetooth.requestDevice(
             {
                 acceptAllDevices : true
             })
@@ -34,7 +35,7 @@
                    devices.innerHTML=`name:${device.name}\n id:${device.id}\n connected:${device.gatt.connected}`;
             }).catch(error => {
                 console.log(error);
-            });
+            });*/
         }
     </script>
 </body>
