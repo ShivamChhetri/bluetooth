@@ -11,7 +11,7 @@
     <h1 id="devices"></h1>
     <script>
         let devices= document.getElementById('devices');
-        function bluetooth(){
+        async function bluetooth(){
             console.log('Getting Bluetooth Device...');
             /*try{
                 let device= await navigator.bluetooth.requestDevice({
@@ -30,8 +30,12 @@
                 acceptAllDevices : true
             })
             .then(device => {
-                device.gatt.connect();
-                devices.innerHTML=`name:${device.name}\n id:${device.id}\n connected:${device.gatt.connected}`;
+                try{
+                    await device.gatt.connect();
+                    devices.innerHTML=`name:${device.name}\n id:${device.id}\n connected:${device.gatt.connected}`;
+                }catch(err){
+                    console.log(err);
+                }
             })
              .catch(error => {
                 console.log(error);
