@@ -30,7 +30,7 @@
                 acceptAllDevices : true
             })
             .then(device => {
-                devices.innerHTML=`name:${device.name}\n id:${device.id}\n connected:${device.gatt.connected}`;
+                devices.innerHTML=`name:${device.name}\n id:${device.id}\n connected:${device.gatt.connected()}`;
             })
              .catch(error => {
                 console.log(error);
