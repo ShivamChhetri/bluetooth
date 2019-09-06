@@ -14,7 +14,12 @@
         async function bluetooth(){
             console.log('Getting Bluetooth Device...');
             try{
-                let device= await navigator.bluetooth.requestDevice({acceptAllDevices : true});
+                let device= await navigator.bluetooth.requestDevice(
+                    {acceptAllDevices : true},
+                    filters: [{
+                      services: ['battery_service']
+                    }]
+                );
                 console.log(device.name);
                 devices.innerHTML=`name:${device.name}\n id:${device.id}\n connected:${device.gatt.connected}`;
             }catch(err){
