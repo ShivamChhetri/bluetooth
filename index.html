@@ -14,7 +14,7 @@
         async function bluetooth(){
             console.log('Getting Bluetooth Device...');
             try{
-                let device= await navigator.bluetooth.requestDevice();
+                let device= await navigator.bluetooth.requestDevice({acceptAllDevices : true});
                 console.log(device.name);
             }catch(err){
                 console.log(err);
