@@ -10,14 +10,17 @@
     <button onclick="bluetooth()">click</button>
     <script>
         function bluetooth(){
-            navigator.bluetooth.requestDevice({
-                acceptAllDevices: true,
-                optionalServices: ['battery_service']
-                })
-                .then(device => { 
-                    console.log(device);
-                })
-                .catch(error => { console.log(error); });  
+            console.log('Getting Bluetooth Device...');
+            navigator.bluetooth.requestDevice(
+            {
+                acceptAllDevices : true
+            })
+            .then(device => {
+                console.log('Got device');
+            })
+             .catch(error => {
+                console.log(error);
+            });
         }
     </script>
 </body>
