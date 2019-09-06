@@ -25,9 +25,9 @@ class GenericDevice {
       return this.device.gatt.connect();
     }
     dispDetail(){
-        devices.innerHTML=`name:${device.name}\n id:${device.id}\n connected:${device.gatt.connected}`;
-        return;
-        // return this.device;
+        //devices.innerHTML=`name:${device.name}\n id:${device.id}\n connected:${device.gatt.connected}`;
+        //return;
+        return this.device;
     }
     readManufacturername() {
       return this.device.gatt.getPrimaryService("device_information")
@@ -53,9 +53,9 @@ class GenericDevice {
     genericDevice.request()
     .then(_ => genericDevice.connect())
     .then(_ => {
-        genericDevice.dispDetail();
-        // let device= genericDevice.dispDetail();
-        // devices.innerHTML=`name:${device.name}\n id:${device.id}\n connected:${device.gatt.connected}`;
+        //genericDevice.dispDetail();
+        let device= genericDevice.dispDetail();
+        devices.innerHTML=`name:${device.name}\n id:${device.id}\n connected:${device.gatt.connected}`;
     })
     .catch(error => { console.log(error) });
   });
