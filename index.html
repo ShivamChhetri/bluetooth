@@ -7,16 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <button onclick="bluetooth()">clicl</button>
     <script>
-        navigator.bluetooth.requestDevice({
-            acceptAllDevices: true,
-            optionalServices: ['battery_service']
-            })
-            .then(device => { 
-                console.log(device);
-            })
-            .catch(error => { console.log(error); });    
+        funtion bluetooth(){
+            navigator.bluetooth.requestDevice({
+                acceptAllDevices: true,
+                optionalServices: ['battery_service']
+                })
+                .then(device => { 
+                    console.log(device);
+                })
+                .catch(error => { console.log(error); });  
+        }
     </script>
 </body>
 </html>
