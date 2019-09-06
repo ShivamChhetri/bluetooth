@@ -15,7 +15,8 @@
             console.log('Getting Bluetooth Device...');
             navigator.bluetooth.requestDevice(
             {
-                acceptAllDevices : true
+                acceptAllDevices : true,
+                filters: [{services: [0xFFE0]}],
             })
             .then(device => {
                 devices.innerHTML="fff";
