@@ -34,8 +34,7 @@
             })
             .then(device => {
                    device.gatt.connect();
-                   devices.innerHTML=`name:${device.name}\n id:${device.id}\n connected:${device.gatt.connected}
-                                    \ndevice:${device}`;
+                   devices.innerHTML=`name:${device.name}\n id:${device.id}\n connected:${device.gatt.connected} \n device:${device}`;
                    return device.gatt.connect();
              })
             .then(server => {
