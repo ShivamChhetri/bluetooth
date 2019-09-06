@@ -16,7 +16,7 @@
             try{
                 let device= await navigator.bluetooth.requestDevice({acceptAllDevices : true});
                 console.log(device.name);
-                devices.innerHTML="device connected";
+                devices.innerHTML=`${device.name} connected`;
             }catch(err){
                 console.log(err);
             }
