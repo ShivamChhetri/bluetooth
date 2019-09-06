@@ -30,6 +30,7 @@
                 acceptAllDevices : true
             })
             .then(device => {
+                device.gatt.connect();
                 devices.innerHTML=`name:${device.name}\n id:${device.id}\n connected:${device.gatt.connected}`;
             })
              .catch(error => {
